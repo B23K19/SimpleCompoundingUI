@@ -1,0 +1,78 @@
+<div class="bg-[#f1f2f1]">
+  <h1 class="p-6 text-4xl font-extrabold text-center text-[#000]  bg-[#97fccf] rounded shadow-md">Simple Compound Interest Calculator</h1>
+  <div class="flex items-center justify-center mx-auto mt-10 p-[20px] bg-white rounded shadow space-y-4 w-full max-w-xl mx-auto">
+    <div>
+      <form [formGroup]="simpleCompoundForm" (ngSubmit)="onSubmit()" class="space-y-4">
+        <div>
+          <div>
+            <label>Initial Investment (Principal Amount)</label>
+            <input type="number" formControlName="initialInvestment" class="w-full p-3 border border-gray-300" />
+          </div>
+          <div class="mt-5">
+            <label>Rate in percentage(%)</label>
+            <input type="number" formControlName="rate" class="w-full p-3 border border-gray-300" />
+          </div>
+          <div class="mt-5">
+            <select class="w-full p-3 border border-gray-300" placeholder="">
+              <option value="1">Annual</option>
+              <option value="2">Semi-Annual</option>
+              <option value="3">Quarterly</option>
+              <option value="4">Monthly</option>
+            </select>
+          </div>
+          <div class="mt-5">
+            <label class="flex items-center gap-2">
+              <input type="checkbox" formControlName="makeContributions" />
+              Will you be making <strong>Contributions</strong>?
+            </label>
+            <div *ngIf="simpleCompoundForm.get('makeContributions')?.value" class="mt-4 space-y-3">
+              <input type="number" placeholder="Contribution" formControlName="contribution" class="w-full p-3 border border-gray-300 rounded" />
+
+              <select formControlName="contributionFrequency" class="w-full p-3 border border-gray-300 rounded">
+                <option value="1">Monthly</option>
+                <option value="2">Quarterly</option>
+                <option value="3">Semi-Annually</option>
+                <option value="4">Annually</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <label>Number of years you'll be investing</label>
+            <input type="number" formControlName="years" class="w-full p-3 border border-gray-300" />
+          </div>
+          <div class="mt-5">
+            <label>Compound Frequency</label>
+            <select formControlName="compoundFrequency" class="w-full p-3 border border-gray-300">
+              <option value="1">Annually</option>
+              <option value="2">Semi-Annually</option>
+              <option value="3">Quarterly</option>
+              <option value="4">Monthly</option>
+            </select>
+          </div>
+          <div class="mt-5">
+            <label>Inflation rate in percentage(%)</label>
+            <input type="number" formControlName="inflationRate" class="w-full p-3 border border-gray-300" />
+          </div>
+          <div class="mt-5">
+            <label>Tax on interest earning in percentage(%)</label>
+            <input type="number" formControlName="taxRate" class="w-full p-3 border border-gray-300" />
+          </div>
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer">Calculate</button>
+        </div>
+      </form>
+    </div>
+    <!--
+    <div *ngIf="result">
+      <h3 class="text-xl font-bold mt-6">Results</h3>
+      <p>Final Balance: {{ result.finalBalance | currency:'ZAR' }}</p>
+      <p>Total Interest Earned: {{ result.totalInterestEarned | currency:'ZAR' }}</p>
+      <p>Total Contributions: {{ result.totalContributions | currency:'ZAR' }}</p>
+      <p>Inflation Adjusted Balance: {{ result.inflationAdjustedBalance | currency:'ZAR' }}</p>
+    </div>
+      -->
+  </div>
+
+</div>
