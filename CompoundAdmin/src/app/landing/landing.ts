@@ -1,6 +1,18 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
+
+interface compoundInterestResult {
+
+  totalYears: number;
+  totalContributions: number;
+  totalInterestAfterTax: number;
+  totalInterestBeforeTax: number;
+  finalBalance: number;
+  inflationAdjustedBalance: number;
+
+}
+
 @Component({
   selector: 'app-landing',
   standalone: false,
@@ -9,10 +21,11 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class Landing {
   simpleCompoundForm: FormGroup;
+  result: compoundInterestResult | null = null;
   constructor(private fb: FormBuilder) {
     this.simpleCompoundForm = this.fb.group({
-      principal: [],
-      rate: [],
+      principal: ['', Validators.required],
+      rate: ['', Validators.required],
       interestType: [],
       makeContributions: [false],
       contribution: [],
@@ -24,12 +37,10 @@ export class Landing {
     });
   }
   onSubmit() {
-    if (this.simpleCompoundForm.valid) {
+    (this.simpleCompoundForm.valid) 
       console.log('Form Submitted!', this.simpleCompoundForm.value);
-      // Here you would typically send the form data to a server
-    } else {
-      console.log('Form is invalid');
-    }
+     
+    
   }
 
 }

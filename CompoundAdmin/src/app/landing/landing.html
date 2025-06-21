@@ -6,14 +6,14 @@
         <div>
           <div>
             <label>Initial Investment (Principal Amount)</label>
-            <input type="number" formControlName="initialInvestment" class="w-full p-3 border border-gray-300" />
+            <input type="number" formControlName="initialInvestment" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]" />
           </div>
           <div class="mt-5">
             <label>Rate in percentage(%)</label>
-            <input type="number" formControlName="rate" class="w-full p-3 border border-gray-300" />
+            <input type="number" formControlName="rate" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]" />
           </div>
           <div class="mt-5">
-            <select class="w-full p-3 border border-gray-300" placeholder="">
+            <select class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]"  placeholder="">
               <option value="1">Annual</option>
               <option value="2">Semi-Annual</option>
               <option value="3">Quarterly</option>
@@ -26,9 +26,9 @@
               Will you be making <strong>Contributions</strong>?
             </label>
             <div *ngIf="simpleCompoundForm.get('makeContributions')?.value" class="mt-4 space-y-3">
-              <input type="number" placeholder="Contribution" formControlName="contribution" class="w-full p-3 border border-gray-300 rounded" />
+              <input type="number" placeholder="Contribution" formControlName="contribution" class="w-full p-3 border border-gray-300 rounded rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]" />
 
-              <select formControlName="contributionFrequency" class="w-full p-3 border border-gray-300 rounded">
+              <select formControlName="contributionFrequency" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]">
                 <option value="1">Monthly</option>
                 <option value="2">Quarterly</option>
                 <option value="3">Semi-Annually</option>
@@ -39,11 +39,11 @@
 
           <div class="mt-5">
             <label>Number of years you'll be investing</label>
-            <input type="number" formControlName="years" class="w-full p-3 border border-gray-300" />
+            <input type="number" formControlName="years" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]" />
           </div>
           <div class="mt-5">
             <label>Compound Frequency</label>
-            <select formControlName="compoundFrequency" class="w-full p-3 border border-gray-300">
+            <select formControlName="compoundFrequency" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]">
               <option value="1">Annually</option>
               <option value="2">Semi-Annually</option>
               <option value="3">Quarterly</option>
@@ -52,11 +52,11 @@
           </div>
           <div class="mt-5">
             <label>Inflation rate in percentage(%)</label>
-            <input type="number" formControlName="inflationRate" class="w-full p-3 border border-gray-300" />
+            <input type="number" formControlName="inflationRate" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]" />
           </div>
           <div class="mt-5">
             <label>Tax on interest earning in percentage(%)</label>
-            <input type="number" formControlName="taxRate" class="w-full p-3 border border-gray-300" />
+            <input type="number" formControlName="taxRate" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]" />
           </div>
         </div>
         <div class="flex justify-end">
@@ -64,15 +64,34 @@
         </div>
       </form>
     </div>
-    <!--
-    <div *ngIf="result">
-      <h3 class="text-xl font-bold mt-6">Results</h3>
-      <p>Final Balance: {{ result.finalBalance | currency:'ZAR' }}</p>
-      <p>Total Interest Earned: {{ result.totalInterestEarned | currency:'ZAR' }}</p>
-      <p>Total Contributions: {{ result.totalContributions | currency:'ZAR' }}</p>
-      <p>Inflation Adjusted Balance: {{ result.inflationAdjustedBalance | currency:'ZAR' }}</p>
-    </div>
-      -->
+    
+     <div *ngIf="result" class="mt-10 p-6 bg-gray-100 rounded shadow w-full">
+    <h3 class="text-xl font-bold text-gray-800">Results</h3>
+    <ul class="mt-4 space-y-2 text-gray-700">
+      <li><strong>Total Years:</strong> {{ result.totalYears }}</li>
+      <li><strong>Total Contributions:</strong> {{ result.totalContributions | currency:'ZAR' }}</li>
+      <li><strong>Total Interest Earned after tax:</strong> {{ result.totalInterestAfterTax | currency:'ZAR' }}</li>
+      <li><strong>Total Interest Earned before tax:</strong> {{ result.totalInterestBeforeTax | currency:'ZAR' }}</li>
+      <li><strong>Final Balance:</strong> {{ result.finalBalance | currency:'ZAR' }}</li>
+      <li><strong>Inflation-Adjusted Balance:</strong> {{ result.inflationAdjustedBalance | currency:'ZAR' }}</li>
+    </ul>
   </div>
-
+        
+  </div>
+  <div class="bg-gray-300 flex flex-col items-center justify-center  text-gray-800 mt-4 p-6 rounded-md">
+    <p class="bg-[#f2f2f8] p-6 rounded-lg shadow-md text-gray-700 leading-relaxed space-y-4 text-[17px]">
+      <span class="block">
+        This is a <strong class="text-teal-600">simple compound interest calculator</strong> that allows you to calculate the future value of an investment based on various parameters such as initial investment, interest rate, contribution frequency, and more. It also considers inflation and tax on interest earnings to provide a more accurate final balance.
+      </span>
+      <span class="block">
+        The calculator is designed to be <strong class="text-teal-600">user-friendly</strong>, with clear labels and input fields for each parameter. It provides real-time feedback on the results after the form is submitted, displaying the total years, contributions, interest earned (both before and after tax), final balance, and inflation-adjusted balance.
+      </span>
+      <span class="block">
+        Your data will be <strong class="text-teal-600">securely stored</strong> in the database, and you can access it anytime.
+      </span>
+    </p>
+    <span class="items-center justify-center mt-4">
+      &#169; 2025  Simple Compound Interest Calculator. All rights reserved.
+    </span>
+  </div>
 </div>
