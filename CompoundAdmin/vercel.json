@@ -4,7 +4,7 @@
       "src": "angular.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/compound-admin/browser"
+        "distDir": "dist/CompoundAdmin/browser"
       }
     }
   ],

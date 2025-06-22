@@ -23,6 +23,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/CompoundAdmin/browser",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
