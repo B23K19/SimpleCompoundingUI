@@ -51,7 +51,7 @@ export class Landing {
         inflationRate: formData.inflationRate,
         taxRate: formData.taxRate
       };
-
+      console.log('API URL used:', environment.apiUrl);
       this.http.post<compoundInterestResult>(`${environment.apiUrl}/Interest/calculate`, body)
         .subscribe({
           next: (res) => {
