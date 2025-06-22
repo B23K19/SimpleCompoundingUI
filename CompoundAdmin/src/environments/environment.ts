@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:5070/api'
+  apiUrl: 'https://simplecompoundingui-production.up.railway.app/api'
 };
