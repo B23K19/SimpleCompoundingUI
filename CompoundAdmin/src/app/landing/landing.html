@@ -1,6 +1,6 @@
 <div class="bg-[#f1f2f1]">
   <h1 class="p-6 text-4xl font-extrabold text-center text-[#000]  bg-[#97fccf] rounded shadow-md">Simple Compound Interest Calculator</h1>
-  <div class="flex items-center justify-center mx-auto mt-10 p-[20px] bg-white rounded shadow space-y-4 w-full max-w-xl mx-auto">
+  <div class="flex  mx-auto mt-10 p-[20px] bg-white rounded shadow space-y-4 w-full max-w-xl mx-auto">
     <div>
       <form [formGroup]="simpleCompoundForm" (ngSubmit)="onSubmit()" class="space-y-4">
         <div>
@@ -13,7 +13,7 @@
             <input type="number" formControlName="rate" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]" />
           </div>
           <div class="mt-5">
-            <select class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]"  placeholder="">
+            <select formControlName="interestType" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]"  placeholder="">
               <option value="1">Annual</option>
               <option value="2">Semi-Annual</option>
               <option value="3">Quarterly</option>
@@ -46,8 +46,8 @@
             <select formControlName="compoundFrequency" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#97fccf]">
               <option value="1">Annually</option>
               <option value="2">Semi-Annually</option>
-              <option value="3">Quarterly</option>
-              <option value="4">Monthly</option>
+              <option value="4">Quarterly</option>
+              <option value="12">Monthly</option>
             </select>
           </div>
           <div class="mt-5">
@@ -65,15 +65,15 @@
       </form>
     </div>
     
-     <div *ngIf="result" class="mt-10 p-6 bg-gray-100 rounded shadow w-full">
-    <h3 class="text-xl font-bold text-gray-800">Results</h3>
-    <ul class="mt-4 space-y-2 text-gray-700">
-      <li><strong>Total Years:</strong> {{ result.totalYears }}</li>
-      <li><strong>Total Contributions:</strong> {{ result.totalContributions | currency:'ZAR' }}</li>
-      <li><strong>Total Interest Earned after tax:</strong> {{ result.totalInterestAfterTax | currency:'ZAR' }}</li>
-      <li><strong>Total Interest Earned before tax:</strong> {{ result.totalInterestBeforeTax | currency:'ZAR' }}</li>
-      <li><strong>Final Balance:</strong> {{ result.finalBalance | currency:'ZAR' }}</li>
-      <li><strong>Inflation-Adjusted Balance:</strong> {{ result.inflationAdjustedBalance | currency:'ZAR' }}</li>
+     <div *ngIf="result" class="mt-10 p-4 bg-[#222] rounded shadow w-full mx-2">
+    <h3 class="text-xl font-bold text-[#97fccf]">Results</h3>
+    <ul class="mt-4 space-y-2 text-[#fff] font-bold leading-relaxed">
+      <li><strong class=" text-[#97fccf]">Total Years:</strong> {{ result.totalYears }}</li>
+      <li><strong class=" text-[#97fccf]">Total Contributions:</strong> {{ result.totalContributions | currency:'R' }}</li>
+      <li><strong class=" text-[#97fccf]">Total Interest Earned after tax:</strong> {{ result.totalInterestAfterTax | currency:'R' }}</li>
+      <li><strong class=" text-[#97fccf]">Total Interest Earned before tax:</strong> {{ result.totalInterestBeforeTax | currency:'R' }}</li>
+      <li><strong class=" text-[#97fccf]">Final Balance:</strong> {{ result.finalBalance | currency:'R' }}</li>
+      <li><strong class=" text-[#97fccf]">Inflation-Adjusted Balance:</strong> {{ result.inflationAdjustedBalance | currency:'R' }}</li>
     </ul>
   </div>
         
