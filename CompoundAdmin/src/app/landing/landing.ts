@@ -52,7 +52,7 @@ export class Landing {
         taxRate: formData.taxRate
       };
 
-      this.http.post<compoundInterestResult>('${environment.apiUrl}/Interest/calculate', body)
+      this.http.post<compoundInterestResult>(`${environment.apiUrl}/Interest/calculate`, body)
         .subscribe({
           next: (res) => {
             this.result = res;
