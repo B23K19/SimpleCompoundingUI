@@ -1,0 +1,6 @@
+@CompoundingAPI_HostAddress = http://localhost:5070
+
+GET {{CompoundingAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
