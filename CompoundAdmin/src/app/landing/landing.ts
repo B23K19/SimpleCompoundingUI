@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';  
-
+import { environment } from '../../environments/environment';
 interface compoundInterestResult {
 
   totalYears: number;
@@ -52,7 +52,7 @@ export class Landing {
         taxRate: formData.taxRate
       };
 
-      this.http.post<compoundInterestResult>('http://localhost:5070/api/Interest/calculate', body)
+      this.http.post<compoundInterestResult>('${environment.apiUrl}/Interest/calculate', body)
         .subscribe({
           next: (res) => {
             this.result = res;
