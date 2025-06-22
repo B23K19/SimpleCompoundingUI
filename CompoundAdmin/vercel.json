@@ -8,6 +8,7 @@
       }
     }
   ],
+  "outputDirectory": "dist/CompoundAdmin/browser",
   "rewrites": [
     {
       "source": "/(.*)",
