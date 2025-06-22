@@ -72,13 +72,7 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "CompoundAdmin:build:production",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
+              "buildTarget": "CompoundAdmin:build:production"
             },
             "development": {
               "buildTarget": "CompoundAdmin:build:development"
